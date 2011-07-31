@@ -8,11 +8,11 @@ categories:
 
 heyo!
 
-{% codeblock whatever.js %}
-	var whatever,
-		doStuff = function(value) {
-			console.log(['doStuff', value]);
-		};
-	
-	doStuff(whatever);
-{% endcodeblock %}
+``` javascript
+    var whatever,
+        doStuff = function(value) {
+            console.log(['doStuff', value]);
+        };
+    
+    doStuff(whatever);
+```
