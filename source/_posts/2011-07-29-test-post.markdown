@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Test Post"
+date: 2011-07-29 19:22
+comments: true
+categories: 
+---
+
+heyo!
+
+{% codeblock whatever.js %}
+	var whatever,
+		doStuff = function(value) {
+			console.log(['doStuff', value]);
+		};
+	
+	doStuff(whatever);
+{% endcodeblock %}
