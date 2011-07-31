@@ -8,11 +8,4 @@ categories:
 
 heyo!
 
-``` javascript
-    var whatever,
-        doStuff = function(value) {
-            console.log(['doStuff', value]);
-        };
-    
-    doStuff(whatever);
-```
+{% gist 741654 %}
