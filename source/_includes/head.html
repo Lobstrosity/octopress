@@ -97,6 +97,8 @@ width:660px;
 margin:0 auto;
 }
 
+header, #content { clear: both }
+
 h1 a {
 color:#000;
 text-decoration:none;
@@ -106,17 +108,13 @@ h1 a:hover,h1 a:active {
 text-decoration:underline;
 }
 
-#Links {
+header ul {
 float:right;
 margin:2em 0 0;
 }
 
-#Links li {
+header ul li {
 display:inline;
-}
-
-#Content {
-clear:both;
 }
 
 a {
@@ -124,12 +122,8 @@ color:#d14;
 text-decoration:underline;
 }
 
-.Post {
+.entry-content {
 border-top:1px solid;
-}
-
-.Date,.Tags {
-margin:.25em 0;
 }
 
 ul,ol {
@@ -142,10 +136,6 @@ list-style-type:disc;
 
 ol li {
 list-style-type:decimal;
-}
-
-.ShortUrl {
-text-align:right;
 }
 	</style>
 </head>
