@@ -4,6 +4,8 @@ title: "Mapping Parent-Child Relationships With Dapper"
 date: 2011-08-08 17:39
 comments: true
 categories: [dapper, dot-net]
+keywords: dapper,.net,parent-child,hierarchy,mapping
+description: Solution for mapping parent-child relationships with Dapper, while avoiding duplicate results.
 ---
 Dapper is a great, new (kind of), tiny database object mapper for the .NET framework. Its footprint is a single file. Drop it in your project and it adds a handful of extension methods to the `IDbConnection` interface.
 
