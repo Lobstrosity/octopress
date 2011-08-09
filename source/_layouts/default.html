@@ -1,19 +1,37 @@
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
 {% include head.html %}
-	<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %}>
+	<body>
 		<div id="wrapper">
-			<header>{% include header.html %}</header>
-
-			<nav role=navigation>{% include navigation.html %}</nav>
+			<header>
+				<h1>(<a href="{{ root_url }}/">in parens</a>)</h1>
+				<ul>
+					<li><a class="twitter" href="http://twitter.com/#!/Lobstrosity">@Lobstrosity</a></li>
+				</ul>
+			</header>
 
 			<div id="content">
 				{{ content | expand_urls: root_url | backtick_codeblock | smart_quotes }}
-				{% unless page.sidebar == false %}
-					<aside role=sidebar>{% include sidebar.html %}</aside>
-				{% endunless %}
 			</div>
 
-			<footer>{% include footer.html %}</footer>
+			<footer>
+				<nav>
+					<ul>
+						{% if paginator.next_page %}
+							<li class="prev"><a href="/page{{paginator.next_page}}/">&larr; Older</a></li>
+						{% endif %}
+
+						<li class="archive"><a href="/blog/archives">Archive</a></li>
+
+						{% if paginator.previous_page and paginator.previous_page > 1 %}
+							<li class="next"><a href="/page{{paginator.previous_page}}/">Newer &rarr;</a></li>
+						{% elsif paginator.previous_page %}
+							<li class="next"><a href="/">Newer &rarr;</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</footer>
 		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="{{ root_url }}/scripts/gist.min.js"></script>
 	</body>
 </html>

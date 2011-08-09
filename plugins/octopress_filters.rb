@@ -4,9 +4,9 @@ require './plugins/pygments_code'
 module OctopressFilters
   include HighlightCode
   # Used on the blog index to split posts on the <!--more--> marker
-  def excerpt(input)
+  def excerpt(input, url)
     if input.index(/<!--\s*more\s*-->/i)
-      input.split(/<!--\s*more\s*-->/i)[0]
+      input.split(/<!--\s*more\s*-->/i)[0] + '<p><a href="' + url + '">Continued &rarr;</a></p>'
     else
       input
     end
@@ -100,6 +100,16 @@ module OctopressFilters
       date = Time.parse(date)
     end
     date
+  end
+
+  def html5datetime(date)
+    if date.class == String
+      date = Time.parse(date)
+    end
+
+    parts = date.to_s.split(/\s+/)
+
+    parts[0] + 'T' + parts[1] + parts[2][0] + parts[2][1] + parts[2][2] + ':' + parts[2][3] + parts[2][4]
   end
 
   # Returns an ordidinal date eg July 22 2007 -> July 22nd 2007

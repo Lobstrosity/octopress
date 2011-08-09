@@ -1,17 +1,15 @@
 {% if index %}
-  <h2 class="entry-title"><a href="{{ root_url }}{{ post.url }}">{{ post.title | titlecase }}</a></h2>
+	<h2 class="entry-title"><a href="{{ root_url }}{{ post.url }}">{{ post.title | titlecase }}</a></h2>
 {% else %}
-  <h2 class="entry-title">{{ page.title | titlecase }}</h2>
+	<h2 class="entry-title">{{ page.title | titlecase }}</h2>
 {% endif %}
-{% unless page.meta == false %}
-  <p class="meta">{% include post/date.html %}</p>
-{% endunless %}
+<div class="meta">
+	{% include post/date.html %}
+	{% include post/categories.html %}
+</div>
 
 {% if index %}
-	<div class="entry-content">{{ content | excerpt }}</div>
-	<footer>
-		<a rel="full-article" href="{{ root_url }}{{ post.url }}">Read on &rarr;</a>
-	</footer>
+	<div class="entry-content">{{ content | excerpt: post.url | append:root_url }}</div>
 {% else %}
 	<div class="entry-content">{{ content }}</div>
 {% endif %}

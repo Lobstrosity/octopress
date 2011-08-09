@@ -1,0 +1,153 @@
+html { 	overflow-y: scroll }
+
+body { font:16px Georgia, serif }
+
+#wrapper
+{
+	width: 660px;
+	margin: 0 auto;
+}
+
+header, #content, article, .clear-fix, footer { clear: both }
+
+header,
+footer
+{
+	overflow: hidden;
+}
+
+header ul
+{
+	float: right;
+	margin: 2em 0 0;
+}
+
+header ul li
+{
+	display:inline;
+}
+
+header li a
+{
+	display: block;
+	margin-left: 1em;
+	float: left;
+}
+
+header li a.twitter
+{
+	text-indent: -999em;
+	width: 16px;
+	height: 20px;
+	background: url(/images/twitter.png) no-repeat;
+}
+
+h1
+{
+	color: #900;
+	float: left;
+}
+
+h1 a,
+h1 a:visited
+{
+	color:#000;
+	text-decoration:none;
+}
+
+h1 a:hover,
+h1 a:active
+{
+	text-decoration:underline;
+}
+
+#content { line-height: 1.25em }
+
+blockquote
+{
+	margin: 1em 0;
+	padding: 0 .5em;
+	background: #f8f8ff;
+	border: solid #dedede;
+	border-width: 1px 1px 1px 4px;
+}
+
+code { font-family: Consolas, Inconsolata, Monaco, "Courier New", monospace }
+
+#blog-archives .year { overflow: hidden }
+
+#blog-archives .articles
+{
+	float: right;
+	width: 80%;
+}
+
+#blog-archives h2
+{
+	float: left;
+	width: 20%;
+	border-top: 1px solid;
+	padding: .67em 0 0;
+	margin-top: 0;
+}
+
+article
+{
+	border-top: 1px solid;
+	margin: 0 0 1em;
+}
+
+.entry-title { margin-bottom: 4px }
+
+article .meta { margin: 0 0 1em }
+
+article .date,
+article .tags
+{
+	margin:.25em 0;
+}
+
+a,
+a:visited
+{
+	color: #900;
+	text-decoration: underline;
+}
+
+p.gist
+{
+	padding: 0 0 0 20px;
+	background: url(/images/loading.gif) 0 2px no-repeat;
+}
+
+footer
+{
+	border-top: 1px solid;
+	margin: 2em 0 1em;
+}
+
+footer ul
+{
+	height: 1.12em;
+	margin: 1em 0;
+	position: relative;
+}
+
+footer li
+{
+	width: 220px;
+	position: absolute;
+	list-style-type: none
+}
+
+footer li.archive
+{
+	left: 220px;
+	text-align: center;
+}
+
+footer li.next
+{
+	right: 0;
+	text-align: right;
+}
