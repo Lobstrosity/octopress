@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Templates Yay</title>
+    </head>
+    <body>
+        <div id="music"></div>
+
+        <script id="musicTemplate" type="text/x-jquery-tmpl">
+            <!-- Render information for each item in the albums array. -->
+            {{each albums}}
+                <p><strong>${title}</strong></p>
+                <p>${artist}</p>
+                <ul>
+                    <!-- Render information for each track in the current
+                        album's tracks array. -->
+                    {{each(i, track) tracks}}
+                        <!-- Use the index to optionally give the list item a
+                            first, last, or no class. -->
+                        {{if i === 0}}
+                            <li class="first">${track}</li>
+                        {{else i === tracks.length - 1}}
+                            <li class="last">${track}</li>
+                        {{else}}
+                            <li>${track}</li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            {{/each}}
+        </script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.min.js"></script>
+
+        <script>
+            var musicData = {
+                albums: [
+                    {
+                        title: 'Swoon',
+                        artist: 'Silversun Pickups',
+                        tracks: [
+                            'There\'s No Secrets This Year',
+                            'The Royal We',
+                            'Growing Old Is Getting Old',
+                            'It\'s Nice To Know You Work Alone',
+                            'Panic Switch',
+                            'Draining',
+                            'Sort Of',
+                            'Substitution',
+                            'Catch And Release',
+                            'Surrounded'
+                        ]
+                    }
+                    // etc.
+                ]
+            };
+
+            $('#music').html($('#musicTemplate').tmpl(musicData));
+        </script>
+    </body>
+</html>

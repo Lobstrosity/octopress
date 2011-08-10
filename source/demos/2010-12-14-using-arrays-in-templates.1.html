@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Templates</title>
+	</head>
+	<body>
+		<div class="greeting"></div>
+
+		<script class="greeting" type="text/x-jquery-tmpl">
+			<p>Hello, ${firstName} ${lastName}</p>
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.min.js"></script>
+
+		<script>
+			var user = {
+				firstName: 'John',
+				lastName: 'Doe'
+			};
+
+			$('div.greeting').html($('script.greeting').tmpl(user));
+		</script>
+	</body>
+</html>

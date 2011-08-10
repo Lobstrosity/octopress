@@ -3,7 +3,17 @@
 	<body>
 		<div id="wrapper">
 			<header>
-				<h1>(<a href="{{ root_url }}/">in parens</a>)</h1>
+				<h1>
+					{% if page.subtitle %}
+						{% if page.category %}
+							(<a href="{{ root_url }}/">in parens</a>)<small> / <a href="{{ root_url }}/{{ page.subtitle }}">{{ page.subtitle }}</a> / {{ page.category }}</small>
+						{% else %}
+							(<a href="{{ root_url }}/">in parens</a>)<small> / {{ page.subtitle }}</small>
+						{% endif %}
+					{% else %}
+						(<span>in parens</span>)
+					{% endif %}
+				</h1>
 				<ul>
 					<li><a class="twitter" href="http://twitter.com/#!/Lobstrosity">@Lobstrosity</a></li>
 				</ul>

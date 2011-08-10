@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Templates</title>
+	</head>
+	<body>
+		<div class="listing"></div>
+
+		<script class="listing" type="text/x-jquery-tmpl">
+			<p>${firstName} ${lastName}</p>
+			<ul>
+				{{each phoneNumbers}}
+					<li>${$value}</li>
+				{{/each}}
+			</ul>
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.min.js"></script>
+
+		<script>
+			var user = {
+				firstName: 'John',
+				lastName: 'Doe',
+				phoneNumbers: [
+					'555-1111',
+					'444-8888'
+				]
+			};
+
+			$('div.listing').html($('script.listing').tmpl(user));
+		</script>
+	</body>
+</html>

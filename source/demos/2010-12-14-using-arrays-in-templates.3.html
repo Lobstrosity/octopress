@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Templates</title>
+	</head>
+	<body>
+		<div class="items"><ul /></div>
+
+		<script class="items" type="text/x-jquery-tmpl">
+			<li>${$item.data}</li>
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.min.js"></script>
+
+		<script>
+			var items = [
+				'Item 1',
+				'Item 2',
+				'Item 3'
+			];
+
+			$('div.items ul').html($('script.items').tmpl(items));
+		</script>
+	</body>
+</html>

@@ -20,9 +20,9 @@ source: source
 destination: public
 plugins: plugins
 code_dir: downloads/code
-category_dir: categories
+category_dir: archive
 markdown: rdiscount
 pygments: false
 
-paginate: 5 # Posts per page on the blog index
+paginate: 8 # Posts per page on the blog index
 recent_posts: 5 # Posts in the sidebar Recent Posts section
