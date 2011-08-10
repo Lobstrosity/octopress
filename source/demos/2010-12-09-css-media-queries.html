@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>CSS Media Queries Example</title>
+		<style type="text/css">
+			/*	Default styles (those not subject to a media query) are for
+				wide browsers.
+			*/
+
+			body
+			{
+				margin: 0;
+				font: 16px Georgia;
+			}
+			
+			p { text-align: justify }
+			
+			#wrapper
+			{
+				width: 52em;
+				margin: 0 auto;
+			}
+			
+			.clear { clear: both }
+			
+			#boxes
+			{
+				margin: 0 auto;
+				width: 48em;
+				overflow: hidden;
+				padding: 0.5em;
+			}
+			
+			.box
+			{
+				width: 10em;
+				height: 10em;
+				margin: 1em;
+				float: left;
+				outline: .5em solid;
+			}
+			
+			#wrapper,
+			h1
+			{
+				-webkit-transition: all 0.2s ease-in-out;
+				-moz-transition: all 0.2s ease-in-out;
+				-o-transition: all 0.2s ease-in-out;
+				transition: all 0.2s ease-in-out;
+			}
+
+			/* Styles for narrow browsers. */
+
+			@media (max-width: 42em)
+			{
+				#wrapper { width: 20em }
+				h1 { font-size: 1.25em }
+				#boxes { width: 12em }
+			}
+
+			/* Styles for medium-width browsers. */
+
+			@media (min-width: 42em) and (max-width: 60em)
+			{
+				#wrapper { width: 36em }
+				h1 { font-size: 1.5em }
+				#boxes { width: 24em }
+			}
+
+			/*	Styles for wide browsers. Add a delay when #boxes resizes when
+				switching to the wide styles. Otherwise, when resizing up from
+				medium, you'd see a wide #boxes jutting out to the right during
+				the transition. Putting the transition rules within the media
+				query ensures that it only happens when switching to wide
+				styles. This particular trick only works for the narrowest or
+				widest level. E.g., on the medium level, you'd only want it to
+				delay when entering medium from small, not when entering medium
+				from large (because then you get the jutting #boxes), but the
+				transition will apply in both cases. I'm sure someone can think
+				of a way around that. *shrug* There's already jutting #boxes
+				when switching from small to medium but it's not noticeable
+				enough to worry about.
+			*/
+			@media (min-width: 60em)
+			{
+				#boxes
+				{
+					-webkit-transition: all 0s ease-in-out 0.2s;
+					-moz-transition: all 0s ease-in-out 0.2s;
+					-o-transition: all 0s ease-in-out 0.2s;
+					transition: all 0s ease-in-out 0.2s;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>CSS Media Queries Example</h1>
+			<p>Quisque sed metus non sem semper fermentum. Fusce vel nisi in augue aliquam porttitor vitae eget lacus. Morbi ut nulla massa. Sed eu turpis urna, ut viverra magna. Aenean pellentesque tristique elit, id cursus lacus mattis non. Proin fermentum elit quis nisl volutpat quis mattis odio hendrerit. Sed consequat hendrerit nibh vitae feugiat. Morbi lorem leo, viverra sit amet viverra vitae, rhoncus et dolor. Aliquam dapibus, nulla facilisis tincidunt pretium, tellus nisl porta nunc, id facilisis enim tortor sed urna. Duis vel mauris eros. Quisque eget leo vitae lacus egestas interdum scelerisque id risus. Nam adipiscing sem nec ipsum feugiat elementum. Phasellus imperdiet posuere luctus. Vestibulum nisl quam, mollis a ullamcorper vel, scelerisque at mauris. Donec vitae felis risus, ut varius quam.</p>
+			<div id="boxes">
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+			</div>
+			<p class="clear">Aliquam nec lacus nisl, tempor aliquam velit. Aliquam auctor mattis luctus. Nam in odio a elit blandit semper. Donec in dui vel mauris fringilla eleifend. Donec libero quam, faucibus vel volutpat vitae, iaculis et odio. Fusce quis augue quis sapien porttitor auctor. Praesent non pulvinar purus. Maecenas dignissim scelerisque semper. Nam lacinia lectus eget dolor congue tempor. Suspendisse commodo placerat imperdiet. Phasellus malesuada mi ac eros bibendum rhoncus. Fusce quis nunc ut tortor convallis ullamcorper quis pulvinar nunc. Vivamus congue tincidunt tempor. Aliquam nisl diam, hendrerit at interdum et, mollis a tellus. Phasellus justo dui, tempor ac gravida vel, pharetra vel libero. Etiam tempor venenatis congue. Pellentesque semper, lectus at auctor ornare, ipsum urna ultricies mauris, ut ultrices tortor odio a ligula. Proin posuere dictum augue, sed interdum ipsum tincidunt quis.</p>
+			<p>Vestibulum a diam vitae diam suscipit tincidunt et non massa. Fusce ut lectus sed lacus pellentesque iaculis. Sed quis ligula magna, cursus lacinia urna. Etiam in erat vel mi mollis condimentum. In porttitor ligula et velit dictum vehicula. Aliquam erat volutpat. Sed eu dolor eu risus auctor lobortis vel eu elit. Aliquam adipiscing augue eu ante bibendum ut dictum nulla accumsan. Sed sit amet est at sem sodales molestie et ac augue. Pellentesque congue tempor fermentum. Sed congue feugiat erat ac viverra. Quisque massa nunc, posuere ut rutrum non, tempor ut urna. Pellentesque faucibus blandit sagittis. Vivamus at odio tristique ligula faucibus varius. Proin sed odio enim, a euismod risus. Cras lacus turpis, placerat eu commodo nec, commodo quis magna. In vel ipsum ac sapien volutpat adipiscing in sit amet eros. Aenean pulvinar adipiscing turpis dignissim tempus. Curabitur rutrum, sapien vitae vehicula condimentum, risus massa consequat turpis, eu ultricies eros nunc eu mauris.</p>
+		</div>
+	</body>
+</html>

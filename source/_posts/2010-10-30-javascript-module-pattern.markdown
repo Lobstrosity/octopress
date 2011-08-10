@@ -36,7 +36,7 @@ Hoisting does not really have anything to do with the module pattern directly. D
 
 ### Closure
 
-Closure is an important concept that comes as an added benefit of function scope. Function scope says that variables are accessible anywhere in the function that declares them. Closure takes it one step further. Functions declared within a function have access to the outer function's declared variables—even if the inner function has a longer lifetime than that of the outer function.
+Closure is an important concept that comes as an added benefit of function scope. Function scope says that variables are accessible anywhere in the function that declares them. Closure takes it one step further. Functions declared within a function have access to the outer function's declared variables&mdash;even if the inner function has a longer lifetime than that of the outer function.
 
 <p class="gist"><a href="http://gist.github.com/1135611#file_4.closure.js" data-file="4.closure.js">http://gist.github.com/1135611#file_4.closure.js</a></p>
 

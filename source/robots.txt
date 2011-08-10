@@ -1,0 +1,8 @@
+User-agent: *
+Sitemap: /sitemap.xml
+Disallow: /archive
+Disallow: /categories
+Disallow: /demos
+Disallow: /images
+Disallow: /scripts
+Disallow: /stylesheets

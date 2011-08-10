@@ -72,7 +72,12 @@ blockquote
 	border-width: 1px 1px 1px 4px;
 }
 
-code { font-family: Consolas, Inconsolata, Monaco, "Courier New", monospace }
+code
+{
+	font: 0.75em Consolas, Inconsolata, Monaco, "Courier New", monospace;
+	background: #e8e8e8;
+	padding: 0.33em 0.25em 0;
+}
 
 #blog-archives .year { overflow: hidden }
 
