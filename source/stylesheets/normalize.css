@@ -110,6 +110,9 @@ ol ul
 	margin: .25em 0 .25em 1.25em;
 }
 
+ol ol { list-style-type: lower-alpha }
+ol ol ol { list-style-type: lower-roman }
+
 nav ul,
 nav ol {
     list-style: none;

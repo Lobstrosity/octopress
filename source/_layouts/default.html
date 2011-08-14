@@ -10,6 +10,8 @@
 						{% else %}
 							(<a href="{{ root_url }}/">in parens</a>)<small> / {{ page.subtitle }}</small>
 						{% endif %}
+					{% else if post %}
+						(<a href="{{ root_url }}/">in parens</a>)
 					{% else %}
 						(<span>in parens</span>)
 					{% endif %}

@@ -1,14 +1,7 @@
 User-agent: *
 Sitemap: http://inparens.com/sitemap.xml
 Disallow: /archive
-Disallow: /categories
 Disallow: /demos
 Disallow: /images
 Disallow: /scripts
 Disallow: /stylesheets
-
-# Temporary disallows to get rid of stale google entries
-Disallow: /friday-links
-Disallow: /setinterval-and-alternatives
-Disallow: /friday-links-0
-Disallow: /?tag=*

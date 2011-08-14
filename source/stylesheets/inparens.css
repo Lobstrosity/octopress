@@ -134,6 +134,8 @@ p.gist
 	background: url(/images/loading.gif) 0 2px no-repeat;
 }
 
+div.gist { margin: 1em 0 }
+
 footer
 {
 	border-top: 1px solid;
