@@ -1,0 +1,67 @@
+body
+{
+	margin: 0;
+	font: 16px Georgia;
+}
+
+p { text-align: justify }
+
+#wrapper
+{
+	width: 52em;
+	margin: 0 auto;
+}
+
+.clear { clear: both }
+
+#boxes
+{
+	margin: 0 auto;
+	width: 48em;
+	overflow: hidden;
+	padding: 0.5em;
+}
+
+.box
+{
+	width: 10em;
+	height: 10em;
+	margin: 1em;
+	float: left;
+	overflow: hidden;
+	background: #000;
+}
+
+#wrapper,
+h1
+{
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 672px)
+{
+	#wrapper { width: 20em }
+	h1 { font-size: 1.25em }
+	#boxes { width: 12em }
+}
+
+@media screen and (min-width: 672px) and (max-width: 960px)
+{
+	#wrapper { width: 36em }
+	h1 { font-size: 1.5em }
+	#boxes { width: 24em }
+}
+
+@media screen and (min-width: 960px)
+{
+	#boxes
+	{
+		-webkit-transition: all 0s ease-in-out 0.2s;
+		-moz-transition: all 0s ease-in-out 0.2s;
+		-o-transition: all 0s ease-in-out 0.2s;
+		transition: all 0s ease-in-out 0.2s;
+	}
+}
