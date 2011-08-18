@@ -1,11 +1,15 @@
 var gistPrefix = 'http://gist.github.com/',
-	fileParameterPrefix = '#file_',
+
+	fileAnchorPrefix = '#file_',
+	
 	// Cache document.write so that it can be restored once all Gists have been
 	// embedded.
 	cachedWrite = document.write,
+
 	body = $('body'),
-	// Map each p.gist to an object that contains the paragraph to be replaced
-	// and the Gist's identifier.
+
+	// Map each p.gist to an object that contains the paragraph to be replaced,
+	// the Gist's identifier, and the file name (if specified).
 	gists = $('p.gist').map(function(n, p) {
 		p = $(p);
 
@@ -15,7 +19,7 @@ var gistPrefix = 'http://gist.github.com/',
 
 		// Only return the mapping if a valid a exists in the p.
 		if (a.length && href.indexOf(gistPrefix) == 0) {
-			parts = href.substring(gistPrefix.length).split(fileParameterPrefix);
+			parts = href.substring(gistPrefix.length).split(fileAnchorPrefix);
 
 			return {
 				p: p,
@@ -27,6 +31,7 @@ var gistPrefix = 'http://gist.github.com/',
 			return undefined;
 		}
 	}).get(),
+	
 	embedNextGist = function() {
 		// If there are no more Gists to embed, restore document.write.
 		if (gists.length == 0) {
@@ -44,10 +49,10 @@ var gistPrefix = 'http://gist.github.com/',
 			// call.
 
 			document.write = function(styleLink) {
-				// On my Tumblr page, I include GitHub's Gist stylesheet in my
-				// overall page template so nothing happens here. If you don't
-				// want to do that, you could do something here like
-				// $('head').append(styleLink);
+				// I have a slightly modified version of GitHub's Gist
+				// stylesheet already included in my page template, so I ignore
+				// stylesheet written here. If you don't want to do that, you
+				// could do something here like $('head').append(styleLink);
 
 				document.write = function(gistDiv) {
 					// Replace the original paragraph with the formatted div
@@ -58,7 +63,10 @@ var gistPrefix = 'http://gist.github.com/',
 				};
 			};
 
-			body.append('<scr' + 'ipt src="' + gistPrefix + gist.id + '.js' + (gist.file ? '?file=' + gist.file : '') + '"></scr' + 'ipt>');
+			body.append(
+				'<scr' + 'ipt src="' + gistPrefix + gist.id + '.js' +
+					(gist.file ? '?file=' + gist.file : '') + '"></scr' + 'ipt>'
+			);
 		}
 	};
 
