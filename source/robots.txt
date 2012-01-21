@@ -5,3 +5,4 @@ Disallow: /demos
 Disallow: /images
 Disallow: /scripts
 Disallow: /stylesheets
+Disallow: /sitemap.xml
