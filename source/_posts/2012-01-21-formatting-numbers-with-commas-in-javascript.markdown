@@ -15,26 +15,26 @@ I'll try to set my post apart slightly by providing a detailed explanation.
 
 ### The Regular Expression
 
-Since JavaScript is notoriously terrible when it comes to arithmetic and precision, the original value is treated as a string throughout. No division by 1000 or anything like that to determine the parts to join.
+Since JavaScript is notoriously terrible when it comes to arithmetic and precision, the original value is treated as a string throughout. No division by 1,000 or anything like that to determine the parts to join.
 
-The regular expression consists of two (top-level) captured patterns, which represent the two pieces of the orignal value that will be joined with a comma.
+The regular expression consists of two (top-level) captured groups, which represent the two pieces of the original value that will be joined with a comma.
 
-1. The first pattern, `(-?\d+)`, captures any number of digits, optionally preceded by a negative sign.
-2. The second pattern, `(\d{3}(\.\d+)?)`, captures exactly three digits, optionally followed by a decimal point then one or more digits.
+1. The first group, `(-?\d+)`, captures any number of digits, optionally preceded by a negative sign.
+2. The second group, `(\d{3}(\.\d+)?)`, captures exactly three digits, optionally followed by a decimal point then one or more digits.
 
-The overall pattern is bracketed by `^` and `$` (start-of-value and end-of-value matchers), which means that all characters in the original value are captured. This helps ensure that the pattern only matches valid inputs (positive and negative integers and floats).
+The overall pattern is bracketed by `^` and `$` (start-of-value and end-of-value matchers), and since all other matching is done inside the groups, that means that all characters in the original value are captured. This helps ensure that the pattern only matches valid inputs (positive and negative integers and floats).
 
 ### The Replace
 
-The regular expression is used in `String`'s `replace` function. The other parameter to replace is a callback that accepts the captured patterns from matching the value with the regular expression.
+The regular expression is used in `String`'s `replace` function. The other parameter to replace is a callback that accepts the captured groups from matching the value with the regular expression.
 
-Note that if the pattern matches the value, `String.replace` will return the callback's return value. Otherwise, it will return the original string. So, calling `'abcd'.commafy()` will just return `'abcd'` (as opposed to throwing an error or returning garbage like `'a,bcd'`).
+Note that if the expression matches the value, `String.replace` will return the callback's return value. Otherwise, it will return the original string. So, calling `'abcd'.commafy()` will just return `'abcd'` (as opposed to throwing an error or returning garbage like `'a,bcd'`).
 
 ### The Callback
 
-The first value in a match (and the first parameter to the callback) is the original string being matched, which we don't need. That's the `_` parameter. You can forget it exists. The first captured pattern (optional negative sign then one or more digits) is `a`. The second captured pattern (three digits then the optional decimal part) is `b`.
+The first value in a match (and the first parameter to the callback) is the original string being matched, which we don't need. That's the `_` parameter. You can forget that it exists. The first captured group (optional negative sign then one or more digits) is `a`. The second captured group (three digits then the optional decimal part) is `b`.
 
-The callback is only adding a single comma, though. Large numbers that need multiple commas are handled by recursively commafying the first captured pattern.
+The callback is only adding a single comma, though. Large numbers that need multiple commas are handled by recursively commafying the first captured group.
 
 ### Step Through
 
